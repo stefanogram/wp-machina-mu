@@ -27,6 +27,8 @@ add_action( 'wp_dashboard_setup', function () {
 	// Clear out the dashboard meta boxes array.
 	$wp_meta_boxes['dashboard'] = array();
 }, 999 );
+
+
 /**
  * Add some custom CSS to the admin dashboard to clean up the presentation.
  *

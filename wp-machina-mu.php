@@ -10,11 +10,14 @@ Author URI: https://stefano.com
 */
 
 /**
- * Set up our various actions
+ * Set up our various debug functions and actions
  */
 
 // Redefine the "expensive" query for Query Monitor.
 define( 'QM_DB_EXPENSIVE', 0.1 );
+
+// Set the name of the debug file.
+define( 'WP_MACHINA_DEBUG_LOGFILE', WP_CONTENT_DIR . '/debug.log' );
 
 
 /**
@@ -27,6 +30,16 @@ add_action( 'wp_dashboard_setup', function () {
 	// Clear out the dashboard meta boxes array.
 	$wp_meta_boxes['dashboard'] = array();
 }, 999 );
+
+
+/**
+ * Add CSS to the Query Monitor output.
+ *
+ * @return void
+ */
+function wpmachina_add_qm_css() {
+	echo '<style>#qm { position: relative; z-index: 1000; }</style>' . "\n";
+}
 
 
 /**
